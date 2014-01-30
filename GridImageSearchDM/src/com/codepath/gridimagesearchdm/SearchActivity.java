@@ -6,14 +6,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import android.net.Uri;
-//import android.net.Uri;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +19,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+//import android.net.Uri;
 
 public class SearchActivity extends Activity {
 	EditText etSearchString;
@@ -48,8 +49,31 @@ public class SearchActivity extends Activity {
 				startActivity(i);
 			}
 		} );
+
+        // ... the usual 
+        //gvOutput = (GridView) findViewById(R.id.lvItems);
+        // Attach the listener to the AdapterView onCreate
+        gvOutput.setOnScrollListener(new EndlessScrollListener() {
+        	@Override
+        	public void onLoadMore(int page, int totalItemsCount) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to your AdapterView
+        		customLoadMoreDataFromApi(totalItemsCount); 
+                // or customLoadMoreDataFromApi(totalItemsCount); 
+        	}	
+        });
+
 	}
 
+    // Append more data into the adapter
+    public void customLoadMoreDataFromApi(int offset) {
+      // This method probably sends out a network request and appends new data items to your adapter. 
+      // Use the offset value and add it as a parameter to your API request to retrieve paginated data.
+      // Deserialize API response and then construct new objects to append to the adapter
+    	//get start from offset ###
+    }
+
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -64,6 +88,8 @@ public class SearchActivity extends Activity {
 		btnSearch      = (Button)   findViewById(R.id.btnSearch);
 	}
 
+
+	
 	public String siteFilter = "";
 	public String imageSize  = "";
 	public String imageColr  = "";
