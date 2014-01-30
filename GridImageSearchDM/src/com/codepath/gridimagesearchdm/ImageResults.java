@@ -2,7 +2,7 @@ package com.codepath.gridimagesearchdm;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
+//import java.util.Collection;
 
 import org.json.JSONArray;
 import org.json.JSONException;

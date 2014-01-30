@@ -7,5 +7,46 @@
     <string name="btnSearchTrigger">Search</string>
     <string name="searchPrompt">Search for what?</string>
     <string name="title_activity_image_display">ImageDisplayActivity</string>
+    <string name="title_activity_on_filter">OnFilter</string>
+    <string name="title_activity_options">OptionsActivity</string>
+    <string name="filterPrompt">Site filter:</string>
+    <string name="advSearchTitle">Advanced Search Options</string>
 
+    <string-array name="spnImageSize">
+        <item> All    </item>
+        <item> Icon   </item>
+        <item> Small  </item>
+        <item> Medium </item>
+        <item> Large  </item>
+        <item> XLarge </item>
+        <item> XXLarge</item>
+    </string-array>
+    <string-array name="spnImageColr">
+        <item> All    </item>
+        <item> Black  </item>
+        <item> Blue   </item>
+        <item> Brown  </item>
+        <item> Gray   </item>
+        <item> Green  </item>
+        <item> Orange </item>
+        <item> Pink   </item>
+        <item> Purple </item>
+        <item> Red    </item>
+        <item> Teal   </item>
+        <item> White  </item>
+        <item> Yellow </item>
+    </string-array>
+    <string-array name="spnImageType">
+        <item> All     </item>
+        <item> Face    </item>
+        <item> Photo   </item>
+        <item> Clip Art</item>
+        <item> Line Art</item>
+    </string-array>
+        <string name="txtImageSize">"Image Size: "</string>
+        <string name="txtColorFilter">"Color Filter: "</string>
+        <string name="txtImageType">"Image Type: "</string>
+        <string name="btnSave">Save</string>
+        <string name="btnSaveValues">Save</string>
+    
 </resources>

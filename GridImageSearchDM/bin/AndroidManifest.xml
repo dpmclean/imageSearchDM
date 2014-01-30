@@ -28,6 +28,14 @@
             android:name="com.codepath.gridimagesearchdm.ImageDisplayActivity"
             android:label="@string/title_activity_image_display" >
         </activity>
+        <activity
+            android:name="com.codepath.gridimagesearchdm.OnFilter"
+            android:label="@string/title_activity_on_filter" >
+        </activity>
+        <activity
+            android:name="com.codepath.gridimagesearchdm.OptionsActivity"
+            android:label="@string/title_activity_options" >
+        </activity>
     </application>
 
 </manifest>

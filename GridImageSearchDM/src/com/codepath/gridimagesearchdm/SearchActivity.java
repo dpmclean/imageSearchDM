@@ -10,13 +10,16 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import android.net.Uri;
+//import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -61,6 +64,37 @@ public class SearchActivity extends Activity {
 		btnSearch      = (Button)   findViewById(R.id.btnSearch);
 	}
 
+	public String siteFilter = "";
+	public String imageSize  = "";
+	public String imageColr  = "";
+	public String imageType  = "";
+	private final int REQUEST_CODE = 20; // nominal call value
+	// simple hello from the settings action bar icon
+	public void driveIndicate(MenuItem mi) {
+		Intent intnt = new Intent(SearchActivity.this, OptionsActivity.class);
+		intnt.putExtra("siteFilter", siteFilter);
+		intnt.putExtra("imageSize", imageSize);
+		intnt.putExtra("imageColr", imageColr);
+		intnt.putExtra("imageType", imageType);
+		startActivityForResult(intnt, REQUEST_CODE); // brings up the second activity
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	  // REQUEST_CODE is defined above
+	  if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+	     // Extract name value from result extras
+		 siteFilter = data.getExtras().getString("siteFilter");
+		 imageSize = data.getExtras().getString("imageSize");
+		 imageColr = data.getExtras().getString("imageColr");
+		 imageType = data.getExtras().getString("imageType");
+	     // Toast the name to display temporarily on screen
+
+	  }
+	  Toast.makeText(this, "filter now is " + siteFilter, Toast.LENGTH_SHORT).show();
+	} 
+
+	
 	public void onImageSearch(View v) {
 		String searchTarget = etSearchString.getText().toString();
 		Toast.makeText(this, "Searching for " + searchTarget, Toast.LENGTH_LONG).show();
